@@ -2,7 +2,7 @@
 
 DSAI4204 team project for the [Kaggle House Prices competition](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).
 
-The project records the path from a simple baseline to a model blend, with attention to data cleaning, feature engineering, validation, and computational cost.
+
 
 ## Notebooks
 
@@ -40,5 +40,4 @@ Keep the validation setting consistent when comparing alternatives. Record unsuc
 ## References
 
 - [Competition and evaluation](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview/description)
-- [WWWITTT: blend model](https://www.kaggle.com/code/wwwittt/blend-model), a reference for the workflow; the notebooks here use an independent, simplified implementation.
 - `Dataset/data_description.txt`
