@@ -15,8 +15,6 @@ Both versions predict natural log prices and use `exp()` to recover the original
 
 - `Dataset/`: competition training data, test data, sample submission, and field descriptions.
 - `requirements-v1.txt`: dependencies shared by both notebooks.
-- `submission_v1.csv`: the existing V1 predictions.
-- `README-v1.md`: additional V1 instructions.
 
 The dataset contains 1,460 labeled training rows and 1,459 test rows. Dataset source: Kaggle House Prices, based on the Ames Housing data compiled by Dean De Cock.
 
@@ -41,3 +39,11 @@ Keep the validation setting consistent when comparing alternatives. Record unsuc
 
 - [Competition and evaluation](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview/description)
 - `Dataset/data_description.txt`
+
+## V3: selected prediction model
+
+`house_prices_v3.ipynb` contains an executed three-model blend selected from the recorded experiments: 50% SVR, 10% XGBoost, and 40% CatBoost. It improves missing-value handling and quality/area/age features, and limits extreme feature leverage for SVR using training-fold quantiles. All training and validation rows are retained.
+
+Use Python 3.11-3.13 and install the additional dependencies with `python3 -m pip install -r requirements-v3.txt`. Run the notebook to reproduce `submission_v3.csv`. Search parameters, failed trials, and the second-seed stability check are preserved in `v3_experiments/`.
+
+OOF selection scores reuse the data for model selection and must not be described as Kaggle scores or an independent final test.

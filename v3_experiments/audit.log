@@ -1,0 +1,16 @@
+YearBuilt invalid years: 0
+YearRemodAdd invalid years: 1
+GarageYrBlt invalid years: 1
+{"model": "v2_ridge", "oof_log_rmse": 0.1429650802990454, "fold_mean": 0.14199917730299122, "fold_std": 0.018548848690220776, "seconds": 0.18060645926743746, "seed": 2026}
+{"model": "v2_gbr", "oof_log_rmse": 0.130632589181802, "fold_mean": 0.13046505000264047, "fold_std": 0.007394599731390335, "seconds": 4.48525599995628, "seed": 2026}
+{"model": "svr_advanced_clip99_c10_g0.0001", "oof_log_rmse": 0.12254994937090496, "fold_mean": 0.12234047703628877, "fold_std": 0.008007634587119939, "seconds": 0.7585557922720909, "seed": 2026}
+{"model": "xgb_d3_n2000", "oof_log_rmse": 0.11969512816272976, "fold_mean": 0.11964155155495822, "fold_std": 0.004003568316917424, "seconds": 3.5588412499055266, "seed": 2026}
+{"model": "cat_d6_l5", "seed": 2026, "oof_log_rmse": 0.11929622211409127, "fold_mean": 0.11917505730040075, "fold_std": 0.006009817815541297, "seconds": 43.400492291897535}
+                          model  oof_log_rmse  fold_mean  fold_std   seconds  seed
+                       v2_ridge      0.142965   0.141999  0.018549  0.180606  2026
+                         v2_gbr      0.130633   0.130465  0.007395  4.485256  2026
+svr_advanced_clip99_c10_g0.0001      0.122550   0.122340  0.008008  0.758556  2026
+                   xgb_d3_n2000      0.119695   0.119642  0.004004  3.558841  2026
+                      cat_d6_l5      0.119296   0.119175  0.006010 43.400492  2026
+                       v2_blend      0.127002        NaN       NaN       NaN  2026
+                       v3_blend      0.115756        NaN       NaN       NaN  2026

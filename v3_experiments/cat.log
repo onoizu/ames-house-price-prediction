@@ -1,0 +1,8 @@
+YearBuilt invalid years: 0
+YearRemodAdd invalid years: 1
+GarageYrBlt invalid years: 1
+{"model": "cat_d4_l5", "oof_log_rmse": 0.1258763705668204, "fold_mean": 0.12493118176164553, "fold_std": 0.0172141108801103, "seconds": 21.022980290930718, "seed": 42}
+{"model": "cat_d5_l5", "oof_log_rmse": 0.12452815820773176, "fold_mean": 0.12333993856736565, "fold_std": 0.019187292044747433, "seconds": 32.44651487469673, "seed": 42}
+{"model": "cat_d6_l5", "oof_log_rmse": 0.12345157511050527, "fold_mean": 0.12247125190326762, "fold_std": 0.017359574249930808, "seconds": 57.434999249875546, "seed": 42}
+{"model": "cat_d5_l12", "oof_log_rmse": 0.12552738543304226, "fold_mean": 0.12440468889024167, "fold_std": 0.018728249910820765, "seconds": 56.061929292045534, "seed": 42}
+CAT SEARCH COMPLETE

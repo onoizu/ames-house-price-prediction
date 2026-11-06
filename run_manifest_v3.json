@@ -1,0 +1,66 @@
+{
+  "model_specs": [
+    {
+      "name": "svr_advanced_clip99_c10_g0.0001",
+      "family": "svr",
+      "params": {
+        "C": 10,
+        "gamma": 0.0001,
+        "epsilon": 0.01
+      },
+      "prep": "advanced_clip99",
+      "scale": "standard",
+      "weight": 0.5
+    },
+    {
+      "name": "xgb_d3_n2000",
+      "family": "xgb",
+      "params": {
+        "n_estimators": 2000,
+        "learning_rate": 0.025,
+        "max_depth": 3,
+        "min_child_weight": 3,
+        "subsample": 0.8,
+        "colsample_bytree": 0.7,
+        "reg_lambda": 3,
+        "reg_alpha": 0.01
+      },
+      "prep": "advanced",
+      "scale": "standard",
+      "weight": 0.1
+    },
+    {
+      "name": "cat_d6_l5",
+      "family": "cat",
+      "prep": "advanced_native",
+      "scale": "none",
+      "params": {
+        "iterations": 1800,
+        "depth": 6,
+        "learning_rate": 0.03,
+        "l2_leaf_reg": 5,
+        "loss_function": "RMSE",
+        "random_seed": 42,
+        "thread_count": 4,
+        "verbose": false,
+        "allow_writing_files": false
+      },
+      "weight": 0.4
+    }
+  ],
+  "cv_seed": 42,
+  "cv_folds": 5,
+  "oof_log_rmse": 0.1179732697643195,
+  "training_rows": 1460,
+  "test_rows": 1459,
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "2.2.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.1.1",
+    "catboost": "1.2.8"
+  },
+  "train_sha256": "1e18addf81e5e4d347cc17ee6075bbe4a42b7fa26b9e5b063e8f692a5f929d41",
+  "test_sha256": "8fdd3d829d4d986b58f845c9553b225e67dd8383624d90fb6ca1d4bed5798c1e"
+}

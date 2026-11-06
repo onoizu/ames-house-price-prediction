@@ -1,0 +1,58 @@
+{
+  "selection_seed": 42,
+  "audit_seed": 2026,
+  "cv_folds": 5,
+  "oof_log_rmse_selection": 0.1179732697643195,
+  "models": [
+    {
+      "name": "svr_advanced_clip99_c10_g0.0001",
+      "family": "svr",
+      "params": {
+        "C": 10,
+        "gamma": 0.0001,
+        "epsilon": 0.01
+      },
+      "prep": "advanced_clip99",
+      "scale": "standard",
+      "weight": 0.5
+    },
+    {
+      "name": "xgb_d3_n2000",
+      "family": "xgb",
+      "params": {
+        "n_estimators": 2000,
+        "learning_rate": 0.025,
+        "max_depth": 3,
+        "min_child_weight": 3,
+        "subsample": 0.8,
+        "colsample_bytree": 0.7,
+        "reg_lambda": 3,
+        "reg_alpha": 0.01
+      },
+      "prep": "advanced",
+      "scale": "standard",
+      "weight": 0.1
+    },
+    {
+      "name": "cat_d6_l5",
+      "family": "cat",
+      "prep": "advanced_native",
+      "scale": "none",
+      "params": {
+        "iterations": 1800,
+        "depth": 6,
+        "learning_rate": 0.03,
+        "l2_leaf_reg": 5,
+        "loss_function": "RMSE",
+        "random_seed": 42,
+        "thread_count": 4,
+        "verbose": false,
+        "allow_writing_files": false
+      },
+      "weight": 0.4
+    }
+  ],
+  "selection_note": "Model candidates and 0.1-step nonnegative blend weights selected using seed-42 OOF predictions. Seed-2026 is a stability check, not an untouched test set.",
+  "training_rows_removed": 0,
+  "validation_rows_removed": 0
+}

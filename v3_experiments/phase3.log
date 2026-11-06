@@ -1,0 +1,17 @@
+YearBuilt invalid years: 0
+YearRemodAdd invalid years: 1
+GarageYrBlt invalid years: 1
+{"model": "svr_advanced_clip99_c5_g0.0001", "oof_log_rmse": 0.12192916501731646, "fold_mean": 0.12135776176352156, "fold_std": 0.013182134764916252, "seconds": 0.9584382497705519, "seed": 42}
+{"model": "svr_advanced_clip99_c5_g0.0002", "oof_log_rmse": 0.12190880417984441, "fold_mean": 0.12141037458188726, "fold_std": 0.012312467281452697, "seconds": 0.5781295830383897, "seed": 42}
+{"model": "svr_advanced_clip99_c10_g0.0001", "oof_log_rmse": 0.12149687212666427, "fold_mean": 0.12091075103279689, "fold_std": 0.013326675375352301, "seconds": 0.6973118749447167, "seed": 42}
+{"model": "svr_advanced_clip99_c10_g0.0002", "oof_log_rmse": 0.12271283166129437, "fold_mean": 0.1221151771545222, "fold_std": 0.013524171086097742, "seconds": 0.6596639160998166, "seed": 42}
+{"model": "svr_advanced_clip99_c10_g0.0003", "oof_log_rmse": 0.12323666463329475, "fold_mean": 0.12265065212403523, "fold_std": 0.013420741572657702, "seconds": 0.7054568328894675, "seed": 42}
+{"model": "svr_advanced_clip99_c20_g0.0001", "oof_log_rmse": 0.12191217752747614, "fold_mean": 0.12124775671485018, "fold_std": 0.014210934219262361, "seconds": 0.7260999996215105, "seed": 42}
+{"model": "svr_advanced_clip98_c5_g0.0001", "oof_log_rmse": 0.12282927116667106, "fold_mean": 0.12232809771063247, "fold_std": 0.01239285912499455, "seconds": 0.9586396664381027, "seed": 42}
+{"model": "svr_advanced_clip98_c5_g0.0002", "oof_log_rmse": 0.12284935909201616, "fold_mean": 0.12241998147068318, "fold_std": 0.011473511125453285, "seconds": 0.6003209580667317, "seed": 42}
+{"model": "svr_advanced_clip98_c10_g0.0001", "oof_log_rmse": 0.12244186713814996, "fold_mean": 0.12192913370064969, "fold_std": 0.01251485034296553, "seconds": 0.617789541836828, "seed": 42}
+{"model": "svr_advanced_clip98_c10_g0.0002", "oof_log_rmse": 0.12319198897658666, "fold_mean": 0.1226934779569309, "fold_std": 0.012378237699666608, "seconds": 0.6883837501518428, "seed": 42}
+{"model": "svr_advanced_clip98_c10_g0.0003", "oof_log_rmse": 0.12397423839866052, "fold_mean": 0.12346448934021237, "fold_std": 0.01255645543577583, "seconds": 0.7452955828048289, "seed": 42}
+{"model": "svr_advanced_clip98_c20_g0.0001", "oof_log_rmse": 0.1225304662038987, "fold_mean": 0.12198069468244199, "fold_std": 0.012962699995257104, "seconds": 0.7516653747297823, "seed": 42}
+{"model": "xgb_clip99", "oof_log_rmse": 0.12669492105414856, "fold_mean": 0.1252844002785482, "fold_std": 0.021077893270007083, "seconds": 4.31928704213351, "seed": 42}
+PHASE 3 COMPLETE

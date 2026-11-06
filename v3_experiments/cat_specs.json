@@ -1,0 +1,70 @@
+{
+  "cat_d4_l5": {
+    "name": "cat_d4_l5",
+    "family": "cat",
+    "prep": "advanced_native",
+    "scale": "none",
+    "params": {
+      "iterations": 1800,
+      "depth": 4,
+      "learning_rate": 0.03,
+      "l2_leaf_reg": 5,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4,
+      "verbose": false,
+      "allow_writing_files": false
+    }
+  },
+  "cat_d5_l5": {
+    "name": "cat_d5_l5",
+    "family": "cat",
+    "prep": "advanced_native",
+    "scale": "none",
+    "params": {
+      "iterations": 1800,
+      "depth": 5,
+      "learning_rate": 0.03,
+      "l2_leaf_reg": 5,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4,
+      "verbose": false,
+      "allow_writing_files": false
+    }
+  },
+  "cat_d6_l5": {
+    "name": "cat_d6_l5",
+    "family": "cat",
+    "prep": "advanced_native",
+    "scale": "none",
+    "params": {
+      "iterations": 1800,
+      "depth": 6,
+      "learning_rate": 0.03,
+      "l2_leaf_reg": 5,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4,
+      "verbose": false,
+      "allow_writing_files": false
+    }
+  },
+  "cat_d5_l12": {
+    "name": "cat_d5_l12",
+    "family": "cat",
+    "prep": "advanced_native",
+    "scale": "none",
+    "params": {
+      "iterations": 1800,
+      "depth": 5,
+      "learning_rate": 0.03,
+      "l2_leaf_reg": 12,
+      "loss_function": "RMSE",
+      "random_seed": 42,
+      "thread_count": 4,
+      "verbose": false,
+      "allow_writing_files": false
+    }
+  }
+}

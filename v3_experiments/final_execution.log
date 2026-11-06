@@ -1,0 +1,58 @@
+Executed and saved /Users/songxiajinzhi/Desktop/DSAI4204/Proj/house_prices_v3.ipynb
+Matplotlib is building the font cache; this may take a moment.
+
+Train: (1460, 81) Test: (1459, 80)
+
+svr completed fold 1
+svr completed fold 2
+
+svr completed fold 3
+svr completed fold 4
+
+svr completed fold 5
+svr OOF log-RMSE: 0.121497; seconds: 0.8
+
+xgb completed fold 1
+
+xgb completed fold 2
+
+xgb completed fold 3
+
+xgb completed fold 4
+
+xgb completed fold 5
+xgb OOF log-RMSE: 0.126523; seconds: 3.9
+
+cat completed fold 1
+
+cat completed fold 2
+
+cat completed fold 3
+
+cat completed fold 4
+
+cat completed fold 5
+cat OOF log-RMSE: 0.123452; seconds: 46.3
+V3 blend OOF log-RMSE: 0.117973
+
+   Model  OOF log-RMSE  Fold mean  Fold standard deviation
+V3 blend      0.117973   0.117102                 0.016002
+     svr      0.121497   0.120911                 0.013327
+     cat      0.123452   0.122471                 0.017360
+     xgb      0.126523   0.125117                 0.021032
+
+Full-data fit completed: svr
+
+Full-data fit completed: xgb
+
+Full-data fit completed: cat
+
+READY TO SUBMIT: /Users/songxiajinzhi/Desktop/DSAI4204/Proj/submission_v3.csv
+Five-fold selection OOF log-RMSE: 0.117973
+Rows: 1459 Missing values: 0
+  Id     SalePrice
+1461 121187.070456
+1462 164627.106001
+1463 185616.269482
+1464 196372.907703
+1465 191511.392846
