@@ -3,7 +3,8 @@
 DSAI4204 team project for the [Kaggle House Prices competition](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).
 
 
-## Latest Score(RMSE): 
+## Latest Score(RMSE): 0.11599
+
 
 ## Notebooks
 
