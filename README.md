@@ -8,6 +8,7 @@ DSAI4204 team project for the [Kaggle House Prices competition](https://www.kagg
 
 ## Notebooks
 
+
 - `house_prices_v1.ipynb`: Ridge regression with a fixed 80/20 training-validation split. Compares the original features against six additional features.
 - `house_prices_v2.ipynb`: Ridge and Gradient Boosting with five-fold cross-validation, plus a fixed 50/50 blend of their log-price predictions. Preprocessing is fitted separately inside each training fold.
 
