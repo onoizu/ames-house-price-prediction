@@ -123,26 +123,42 @@ def compare_with_submission(version, payload, ids):
     print(f"{version}: {match}, scored CSV SHA-256 {sha256(original).hexdigest()}")
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data", type=Path, default=HERE.parent / "Dataset")
-    parser.add_argument("--output", type=Path, required=True)
-    args = parser.parse_args()
-    train = pd.read_csv(args.data / "train.csv", keep_default_na=False, na_values=["", "NA"])
-    test = pd.read_csv(args.data / "test.csv", keep_default_na=False, na_values=["", "NA"])
-    if len(train) != 1460 or len(test) != 1459 or not test["Id"].is_unique:
-        raise ValueError("Use the competition train.csv and test.csv")
-
+def build_submissions(data, test):
     v5 = rebuild_v5(test["Id"])
+    yield "V5", v5
     v6 = rebuild_v6(test["Id"], v5)
+    yield "V6", v6
     v7 = rebuild_v7(test, v6)
-    v8 = rebuild_v8(train, test, v7)
-    versions = dict(zip(VERSION_FILES, [v5, v6, v7, v8]))
-    for version, payload in versions.items():
-        compare_with_submission(version, payload, test["Id"])
+    yield "V7", v7
+    train = pd.read_csv(data / "train.csv", keep_default_na=False, na_values=["", "NA"])
+    if len(train) != 1460:
+        raise ValueError("Use the competition train.csv")
+    yield "V8", rebuild_v8(train, test, v7)
+
+
+def main(version=None):
+    description = __doc__ if version is None else f"Rebuild the scored {version} submission."
+    parser = argparse.ArgumentParser(description=description)
+    parser.add_argument("--data", type=Path, default=HERE.parent / "Dataset")
+    parser.add_argument("--output", type=Path, default=HERE.parent / "rebuilt")
+    args = parser.parse_args()
+    test = pd.read_csv(args.data / "test.csv", keep_default_na=False, na_values=["", "NA"])
+    if len(test) != 1459 or not test["Id"].is_unique:
+        raise ValueError("Use the competition test.csv")
+
+    outputs = {}
+    for current, payload in build_submissions(args.data, test):
+        if version is None or current == version:
+            compare_with_submission(current, payload, test["Id"])
+            outputs[VERSION_FILES[current]] = payload
+        if current == version:
+            break
+
     args.output.mkdir(parents=True, exist_ok=True)
-    for version, payload in versions.items():
-        (args.output / VERSION_FILES[version]).write_bytes(payload)
+    for filename, payload in outputs.items():
+        destination = args.output / filename
+        destination.write_bytes(payload)
+        print(f"Saved {destination}")
 
 
 if __name__ == "__main__":
