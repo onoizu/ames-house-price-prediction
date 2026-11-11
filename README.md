@@ -3,8 +3,9 @@
 DSAI4204 team project for the [Kaggle House Prices competition](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).
 
 
-## Latest Score(RMSE): 
+## Kaggle result
 
+The final V8 submission scored **0.11101** log RMSE. See the [V5–V8 submissions and rebuild instructions](final_versions/README.md) for the scored files and their model combinations.
 
 ## Notebooks
 
