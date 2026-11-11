@@ -14,10 +14,10 @@ HERE = Path(__file__).resolve().parent
 COMPONENTS = HERE / "components"
 SUBMISSIONS = HERE / "submissions"
 VERSION_FILES = {
-    "V5": "submission_candidate.csv",
-    "V6": "submission_blend_01.csv",
-    "V7": "submission_challenge_06.csv",
-    "V8": "submission_challenge_07.csv",
+    "V5": "v5.csv",
+    "V6": "v6.csv",
+    "V7": "v7.csv",
+    "V8": "v8.csv",
 }
 
 
