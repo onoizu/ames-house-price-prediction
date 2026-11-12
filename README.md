@@ -15,6 +15,13 @@ The final V8 submission scored **0.11101** log RMSE. See the [V5–V8 submission
 
 Both versions predict natural log prices and use `exp()` to recover the original price scale. Lower log-RMSE is better. The V1 single-split score and V2 cross-validation score use different validation settings and should not be treated as a direct measure of improvement.
 
+The later versions can be opened in Jupyter or VS Code. These notebooks rebuild the scored submissions from saved component predictions and the repository data.
+
+- [V5 notebook](house_prices_v5.ipynb) — stacked predictions and tail adjustment
+- [V6 notebook](house_prices_v6.ipynb) — equal blend of two prediction pipelines
+- [V7 notebook](house_prices_v7.ipynb) — sale-condition blend
+- [V8 notebook](house_prices_v8.ipynb) — comparable-sale adjustment
+
 ## Files
 
 - `Dataset/`: competition training data, test data, sample submission, and field descriptions.
