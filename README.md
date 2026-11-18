@@ -7,6 +7,12 @@ DSAI4204 team project for the [Kaggle House Prices competition](https://www.kagg
 
 The final submission scored **0.11101** log RMSE. The integrated notebook presents the final combination as V5, matching the project report. The saved prediction inputs and scored files are retained in `final_versions/`.
 
+## Kaggle notebook
+
+[Open the Kaggle notebook](house_prices_kaggle.ipynb) for the final prediction workflow with eight code cells and no version history. Attach the `Traindata` and `testData` datasets, then run all cells. The CSVs are identified from their columns, so dataset folder names and capitalisation do not need to match hard-coded paths.
+
+The five saved model prediction columns are included as one CSV table inside the notebook. No additional dataset, repository directory or download is needed. The notebook combines those saved outputs and applies the final comparable-sale rule; it does not retrain the component models. The output is `/kaggle/working/submission.csv`.
+
 ## Final integrated notebook
 
 [Open the final notebook](house_prices_final.ipynb) to follow the same five milestones as the project report: V1 starts with Ridge and six features; V2 compares and combines learners; V3 reviews input treatments and model alternatives; V4 introduces neighbourhood context; V5 combines the final predictions and checks comparable sales.
