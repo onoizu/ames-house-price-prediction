@@ -7,6 +7,14 @@ DSAI4204 team project for the [Kaggle House Prices competition](https://www.kagg
 
 The final V8 submission scored   **0.11101** log RMSE. See the [V5–V8 submissions and rebuild instructions](final_versions/README.md) for the scored files and their model combinations.
 
+## Final integrated notebook
+
+[Open the final notebook](house_prices_final.ipynb) for the complete V1 data reading, data checks, EDA, cleaning, six-feature comparison and Ridge baseline, followed by the frozen V8 prediction pipeline.
+
+The notebook includes executed plots and results. Ridge is trained from the raw data; V8 is rebuilt from the saved component predictions in `final_versions/components/` and checked against the recorded V5–V8 submissions. It does not retrain every V8 component.
+
+Run all cells inside a clone containing `Dataset/` and `final_versions/`, using the packages in `requirements-v1.txt`. The final prediction is saved as `final_outputs/submission_final.csv`. The baseline CSV, stage checks, comparable-sale records and a run manifest are saved separately in the same directory.
+
 ## Notebooks
 
 
@@ -25,7 +33,7 @@ The later versions can be opened in Jupyter or VS Code. These notebooks rebuild 
 ## Files
 
 - `Dataset/`: competition training data, test data, sample submission, and field descriptions.
-- `requirements-v1.txt`: dependencies shared by both notebooks.
+- `requirements-v1.txt`: dependencies for V1, V2 and the final integrated notebook.
 
 The dataset contains 1,460 labeled training rows and 1,459 test rows. Dataset source: Kaggle House Prices, based on the Ames Housing data compiled by Dean De Cock.
 
@@ -38,7 +46,7 @@ python3 -m pip install -r requirements-v1.txt
 python3 -m jupyterlab
 ```
 
-Open a notebook, select the appropriate Python kernel, and run its cells in order. The notebooks also recognize the official competition data path on Kaggle. No GPU is required.
+Open a notebook, select the appropriate Python kernel, and run its cells in order. V1 and V2 also recognize the official competition data path on Kaggle. No GPU is required.
 
 Running V2 saves `submission_v2.csv`, `cv_results_v2.csv`, `model_comparison_v2.csv`, and `oof_predictions_v2.csv` in the working directory. Review the validation results before uploading predictions to Kaggle.
 
