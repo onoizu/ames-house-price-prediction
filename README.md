@@ -5,15 +5,15 @@ DSAI4204 team project for the [Kaggle House Prices competition](https://www.kagg
 
 ## Kaggle result
 
-The final V8 submission scored   **0.11101** log RMSE. See the [V5–V8 submissions and rebuild instructions](final_versions/README.md) for the scored files and their model combinations.
+The final submission scored **0.11101** log RMSE. The integrated notebook presents the final combination as V5, matching the project report. The saved prediction inputs and scored files are retained in `final_versions/`.
 
 ## Final integrated notebook
 
-[Open the final notebook](house_prices_final.ipynb) for the complete V1 data reading, data checks, EDA, cleaning, six-feature comparison and Ridge baseline, followed by the frozen V8 prediction pipeline.
+[Open the final notebook](house_prices_final.ipynb) to follow the same five milestones as the project report: V1 starts with Ridge and six features; V2 compares and combines learners; V3 reviews input treatments and model alternatives; V4 introduces neighbourhood context; V5 combines the final predictions and checks comparable sales.
 
-The notebook includes executed plots and results. Ridge is trained from the raw data; V8 is rebuilt from the saved component predictions in `final_versions/components/` and checked against the recorded V5–V8 submissions. It does not retrain every V8 component.
+The notebook includes executed EDA plots, the Ridge training run, recorded model comparisons, and the final V5 prediction pipeline. The middle milestones use saved OOF predictions and experiment records. The final combination uses saved component predictions, with intermediate and final checks against the prediction archive; it does not retrain every component.
 
-Run all cells inside a clone containing `Dataset/` and `final_versions/`, using the packages in `requirements-v1.txt`. The final prediction is saved as `final_outputs/submission_final.csv`. The baseline CSV, stage checks, comparable-sale records and a run manifest are saved separately in the same directory.
+Run all cells inside a clone containing `Dataset/`, `final_versions/`, and the recorded experiment files. Install `requirements-v1.txt` in the selected Python kernel. The asset manifest, `final_versions/notebook_assets.json`, supplies named inputs and their hashes. Output files are written to `final_outputs/`, including `submission_final.csv`, the baseline CSV, comparison tables, comparable-sale records and a run manifest.
 
 ## Notebooks
 
@@ -23,12 +23,7 @@ Run all cells inside a clone containing `Dataset/` and `final_versions/`, using 
 
 Both versions predict natural log prices and use `exp()` to recover the original price scale. Lower log-RMSE is better. The V1 single-split score and V2 cross-validation score use different validation settings and should not be treated as a direct measure of improvement.
 
-The later versions can be opened in Jupyter or VS Code. These notebooks rebuild the scored submissions from saved component predictions and the repository data.
-
-- [V5 notebook](house_prices_v5.ipynb) — stacked predictions and tail adjustment
-- [V6 notebook](house_prices_v6.ipynb) — equal blend of two prediction pipelines
-- [V7 notebook](house_prices_v7.ipynb) — sale-condition blend
-- [V8 notebook](house_prices_v8.ipynb) — comparable-sale adjustment
+The [neighbourhood notebook](house_prices_v4.ipynb) and [its run instructions](README_v4.md) preserve the later neighbourhood recipe. Use the final integrated notebook above for the report's complete five-milestone narrative and final prediction file.
 
 ## Files
 

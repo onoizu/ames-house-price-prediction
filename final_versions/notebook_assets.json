@@ -1,0 +1,239 @@
+{
+  "schema": 1,
+  "source_commit": "32ed9850223b1a3400de7b576ecc1c20db4fbb9b",
+  "description": "Archive file aliases for the five-milestone project notebook. Paths retain their original archive names.",
+  "components": {
+    "stacking": {
+      "path": "final_versions/components/v5_stacked_log_predictions.csv",
+      "sha256": "24fcf206ec9f88a9288867774ff7d2c2fef5e641cf48bf4eb7131b439be745fe",
+      "column": "stacked_log_prediction"
+    },
+    "svm": {
+      "path": "final_versions/components/v5_svm_predictions.csv",
+      "sha256": "c8ebb63767b71650d7fa2e788c69d5d2d91972f4717895166c349fc6368e7db2",
+      "column": "SalePrice"
+    },
+    "svr_catboost": {
+      "path": "final_versions/components/submission_experiment_01.csv",
+      "sha256": "28d60fcdff2ba65ce5fe8ddccff84611a6be9615beb559af27bd5082e74ce673",
+      "column": "SalePrice"
+    },
+    "tabicl": {
+      "path": "final_versions/components/v7_tabicl_log_predictions.csv",
+      "sha256": "d295e5b4f3e9e8709988159ee0c2c658fd3edd668c8e6c02da9753b4f5ad7fa2",
+      "column": "prediction_log"
+    },
+    "kumo": {
+      "path": "final_versions/components/v7_kumo_log_predictions.csv",
+      "sha256": "b7f9100cb87049532aefb5bea93be913d0d791896b413f6f580a3ffd061b2c84",
+      "column": "log_price"
+    }
+  },
+  "checkpoints": {
+    "stacking_svm": {
+      "path": "final_versions/submissions/v5.csv",
+      "sha256": "2ebaa4c56f904a789585455771ea50431ad4c7078ba6c8ed8832515ca6a8ac57"
+    },
+    "corrected_blend": {
+      "path": "final_versions/submissions/v6.csv",
+      "sha256": "0a809a12bdf2f34fbd758b713da2975ceacabf689dbdd9589e1741bea2a9b4af"
+    },
+    "sale_condition_blend": {
+      "path": "final_versions/submissions/v7.csv",
+      "sha256": "9baadb01d826c55d745e32c05312814ba7baa52b95e68d3f12ab9aae6df809d8"
+    },
+    "final": {
+      "path": "final_versions/submissions/v8.csv",
+      "sha256": "235e65e2b8ea199cd93a929149b09b372e62282bfee5ce622b9e734a4fb006ac"
+    }
+  },
+  "experiment_records": {
+    "v2_oof": {
+      "path": "oof_predictions_v2.csv",
+      "sha256": "3ff49a88f53ad2e1bd205e620a0a1a971f4ebd1dc7e020758423a2a20b305a7e"
+    },
+    "v2_folds": {
+      "path": "cv_results_v2.csv",
+      "sha256": "5777b8c325a934fab44815f600d81f760e3970c8f016a9cb2cdb4dd80390ed47"
+    },
+    "v3_candidates": {
+      "path": "v3_experiments/all_candidate_results.csv",
+      "sha256": "4e8ef727540949b17f7c693f5625dcf7151028b2d024488fd886586d85312213"
+    },
+    "v3_specs": {
+      "path": "v3_experiments/all_model_specs.json",
+      "sha256": "5278e1c6d60314ea64de76792806e67360c03c3fa2a95f9c8adaa9a2d602afc6"
+    },
+    "v3_oof": {
+      "path": "v3_experiments/selection_oof.csv",
+      "sha256": "aa23fde3345fd3fe9a1e904adc045d3e11268ffcf8169b7455ebfe2c7bee2d41"
+    },
+    "v3_model_comparison": {
+      "path": "model_comparison_v3.csv",
+      "sha256": "53e559842efd2b51aab40a35021d60bd9440e140cc6b7f00ce4020821af7ea1b"
+    }
+  },
+  "neighbourhood_review": {
+    "source": "house_prices_v4.ipynb",
+    "source_git_blob": "c8dcd83ee4674e6ebcdcef874b7da9697fd569ed",
+    "source_cells_zero_based": [
+      1,
+      9
+    ],
+    "precision": "Six decimal places, as displayed in the executed source notebook.",
+    "paired_scores": [
+      {
+        "Seed": 42,
+        "V3 reproduced": 0.117905,
+        "V4": 0.114679
+      },
+      {
+        "Seed": 2026,
+        "V3 reproduced": 0.115709,
+        "V4": 0.113709
+      }
+    ],
+    "fold_scores": [
+      {
+        "Model": "V3",
+        "Seed": 42,
+        "Fold": 1,
+        "log-RMSE": 0.122911,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 42,
+        "Fold": 2,
+        "log-RMSE": 0.107749,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 42,
+        "Fold": 3,
+        "log-RMSE": 0.141952,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 42,
+        "Fold": 4,
+        "log-RMSE": 0.111379,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 42,
+        "Fold": 5,
+        "log-RMSE": 0.101173,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 42,
+        "Fold": 1,
+        "log-RMSE": 0.119967,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 42,
+        "Fold": 2,
+        "log-RMSE": 0.107129,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 42,
+        "Fold": 3,
+        "log-RMSE": 0.134434,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 42,
+        "Fold": 4,
+        "log-RMSE": 0.107444,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 42,
+        "Fold": 5,
+        "log-RMSE": 0.101346,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 2026,
+        "Fold": 1,
+        "log-RMSE": 0.119873,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 2026,
+        "Fold": 2,
+        "log-RMSE": 0.12403,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 2026,
+        "Fold": 3,
+        "log-RMSE": 0.107504,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 2026,
+        "Fold": 4,
+        "log-RMSE": 0.114238,
+        "Rows": 292
+      },
+      {
+        "Model": "V3",
+        "Seed": 2026,
+        "Fold": 5,
+        "log-RMSE": 0.112172,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 2026,
+        "Fold": 1,
+        "log-RMSE": 0.119467,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 2026,
+        "Fold": 2,
+        "log-RMSE": 0.120934,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 2026,
+        "Fold": 3,
+        "log-RMSE": 0.10369,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 2026,
+        "Fold": 4,
+        "log-RMSE": 0.11278,
+        "Rows": 292
+      },
+      {
+        "Model": "V4",
+        "Seed": 2026,
+        "Fold": 5,
+        "log-RMSE": 0.110817,
+        "Rows": 292
+      }
+    ]
+  }
+}
