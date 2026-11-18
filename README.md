@@ -9,9 +9,9 @@ The final submission scored **0.11101** log RMSE. The integrated notebook presen
 
 ## Kaggle notebook
 
-[Open the Kaggle notebook](house_prices_kaggle.ipynb) for the final prediction workflow with eight code cells and no version history. Attach the `Traindata` and `testData` datasets, then run all cells. The CSVs are identified from their columns, so dataset folder names and capitalisation do not need to match hard-coded paths.
+[Open the Kaggle notebook](house_prices_kaggle.ipynb) and attach the Ames training and test CSVs under `Traindata` and `testData`. The notebook reads the raw tables, explores missing facilities, price, size, quality and neighbourhood, and fits SVR, XGBoost and CatBoost. Each validation house receives a prediction from models trained on the other four folds.
 
-The five saved model prediction columns are included as one CSV table inside the notebook. No additional dataset, repository directory or download is needed. The notebook combines those saved outputs and applies the final comparable-sale rule; it does not retrain the component models. The output is `/kaggle/working/submission.csv`.
+The final cells refit the models on all labelled houses, apply the comparable-sale check, and write `/kaggle/working/submission.csv`. This training notebook reports its own five-fold validation error. The project's leaderboard result belongs to the separately archived submission.
 
 ## Final integrated notebook
 
