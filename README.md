@@ -3,10 +3,6 @@
 DSAI4204 team project for the [Kaggle House Prices competition](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).
 
 
-## Kaggle result
-
-The final submission scored **0.11101** log RMSE. The integrated notebook presents the final combination as V5, matching the project report. The saved prediction inputs and scored files are retained in `final_versions/`.
-
 ## Kaggle notebook
 
 [Open the Kaggle notebook](house_prices_kaggle.ipynb) and attach the Ames training and test CSVs under `Traindata` and `testData`. The notebook reads the raw tables, explores missing facilities, price, size, quality and neighbourhood, and fits SVR, XGBoost and CatBoost. Each validation house receives a prediction from models trained on the other four folds.
