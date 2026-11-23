@@ -1,65 +1,59 @@
 # Ames House Price Prediction
 
-DSAI4204 team project for the [Kaggle House Prices competition](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques).
+A machine-learning workflow for predicting residential sale prices in Ames, Iowa, using the [Kaggle House Prices dataset](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques). It covers data cleaning, exploratory analysis, feature engineering, model comparison, and reconstruction of the final submission.
 
+**Best recorded Kaggle score:** `0.11101` log-RMSE ([scored predictions](final_versions/submissions/v8.csv)).
 
-## Kaggle notebook
+[Start with the final notebook](house_prices_final.ipynb) · [View the executed Kaggle notebook](https://www.kaggle.com/code/anmeihui/ames-house-prices-final-ant12?scriptVersionId=372198732)
 
-[Open the Kaggle notebook](house_prices_kaggle.ipynb) and attach the Ames training and test CSVs under `Traindata` and `testData`. The notebook reads the raw tables, explores missing facilities, price, size, quality and neighbourhood, and fits SVR, XGBoost and CatBoost. Each validation house receives a prediction from models trained on the other four folds.
+## Data and evaluation
 
-The final cells refit the models on all labelled houses, apply the comparable-sale check, and write `/kaggle/working/submission.csv`. This training notebook reports its own five-fold validation error. The project's leaderboard result belongs to the separately archived submission.
+The dataset contains **1,460 labeled sales**, **1,459 test houses**, and **79 predictors** spanning location, area, quality, age, facilities, and sale condition. `SalePrice` is the target, and `Id` links predictions back to the test rows. The [data dictionary](Dataset/data_description.txt) describes the fields and their categories.
 
-## Final integrated notebook
+Kaggle uses root mean squared error on the natural logarithms of the predicted and observed prices. Lower is better. The notebook identifies the validation setup for each comparison and reports leaderboard scores separately from local validation results.
 
-[Open the final notebook](house_prices_final.ipynb) to follow the same five milestones as the project report: V1 starts with Ridge and six features; V2 compares and combines learners; V3 reviews input treatments and model alternatives; V4 introduces neighbourhood context; V5 combines the final predictions and checks comparable sales.
+## Modeling workflow
 
-The notebook includes executed EDA plots, the Ridge training run, recorded model comparisons, and the final V5 prediction pipeline. The middle milestones use saved OOF predictions and experiment records. The final combination uses saved component predictions, with intermediate and final checks against the prediction archive; it does not retrain every component.
+1. **Inspect and prepare the data.** We compared missing facility ratings with related fields to distinguish absent facilities from unknown ratings. For validation, we estimated imputation and scaling statistics from the training split or fold and applied them to its held-out rows. The price distribution and the relationship between living area and sale price guided the log transformation and later checks on unusually large homes.
+2. **Build a Ridge baseline.** We compared the original predictors with six engineered features under the same holdout split. One of those features, `TotalSF`, combines basement, first-floor, and second-floor areas.
+3. **Compare models and limit extreme inputs.** We used out-of-fold predictions to compare Ridge, Gradient Boosting, and their blend. Later experiments evaluated SVR, XGBoost, and CatBoost. For SVR, capping large continuous values at training-fold quantiles reduced their influence while keeping every row. The 99th-percentile cap performed better than the 98th-percentile cap in the recorded comparison.
+4. **Add neighborhood context.** A house's living area relative to the neighborhood median helps represent how large it is for its location. The overall neighborhood model improved validation error on both five-fold splits and in nine of the ten paired fold comparisons.
+5. **Combine the final predictions.** We used different blending rules by sale condition and applied a comparable-sale adjustment to one test house. The final notebook verifies the reconstructed predictions against archived submission checkpoints.
 
-Run all cells inside a clone containing `Dataset/`, `final_versions/`, and the recorded experiment files. Install `requirements-v1.txt` in the selected Python kernel. The asset manifest, `final_versions/notebook_assets.json`, supplies named inputs and their hashes. Output files are written to `final_outputs/`, including `submission_final.csv`, the baseline CSV, comparison tables, comparable-sale records and a run manifest.
+## Run locally
 
-## Notebooks
+The integrated notebook was tested with Python 3.13. Run these commands from a terminal:
 
-
-- `house_prices_v1.ipynb`: Ridge regression with a fixed 80/20 training-validation split. Compares the original features against six additional features.
-- `house_prices_v2.ipynb`: Ridge and Gradient Boosting with five-fold cross-validation, plus a fixed 50/50 blend of their log-price predictions. Preprocessing is fitted separately inside each training fold.
-
-Both versions predict natural log prices and use `exp()` to recover the original price scale. Lower log-RMSE is better. The V1 single-split score and V2 cross-validation score use different validation settings and should not be treated as a direct measure of improvement.
-
-The [neighbourhood notebook](house_prices_v4.ipynb) and [its run instructions](README_v4.md) preserve the later neighbourhood recipe. Use the final integrated notebook above for the report's complete five-milestone narrative and final prediction file.
-
-## Files
-
-- `Dataset/`: competition training data, test data, sample submission, and field descriptions.
-- `requirements-v1.txt`: dependencies for V1, V2 and the final integrated notebook.
-
-The dataset contains 1,460 labeled training rows and 1,459 test rows. Dataset source: Kaggle House Prices, based on the Ames Housing data compiled by Dean De Cock.
-
-## Run
-
-Use Python 3.10 or newer. From the repository root:
-
-```sh
-python3 -m pip install -r requirements-v1.txt
-python3 -m jupyterlab
+```bash
+git clone https://github.com/onoizu/ames-house-price-prediction.git
+cd ames-house-price-prediction
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-v1.txt
+python -m jupyterlab
 ```
 
-Open a notebook, select the appropriate Python kernel, and run its cells in order. V1 and V2 also recognize the official competition data path on Kaggle. No GPU is required.
+Open `house_prices_final.ipynb` from the repository root and run all cells. The clone includes the input data and prediction artifacts needed for this notebook. The run fits the Ridge baseline, reviews saved development results, and rebuilds the final submission from archived component predictions. Full retraining of the final ensemble is outside the notebook's scope.
 
-Running V2 saves `submission_v2.csv`, `cv_results_v2.csv`, `model_comparison_v2.csv`, and `oof_predictions_v2.csv` in the working directory. Review the validation results before uploading predictions to Kaggle.
+## Outputs
 
-## Experiment principles
+The integrated notebook writes these files under `final_outputs/`:
 
-Keep the validation setting consistent when comparing alternatives. Record unsuccessful experiments as well as improvements. Adding features can increase redundancy, computation, and overfitting risk, so retain changes based on validation evidence.
+- `submission_final.csv` — final predictions with columns `Id` and `SalePrice`.
+- `submission_ridge_baseline.csv` — predictions from the Ridge baseline.
+- `final_prediction_checks.csv` — comparisons with archived submission checkpoints.
+- `run_manifest_final.json` — package versions, input hashes, and verification results.
+- Model comparison tables and records for the comparable-sale adjustment.
+
+## Repository guide
+
+- [Integrated notebook](house_prices_final.ipynb) — EDA, Ridge baseline, and final prediction workflow.
+- [Ridge baseline](house_prices_v1.ipynb) and [Ridge–Gradient Boosting blend](house_prices_v2.ipynb) — early model development.
+- [SVR and boosted-tree blend](house_prices_v3.ipynb) and [neighborhood model](house_prices_v4.ipynb) — later training notebooks. See the [V3 dependencies](requirements-v3.txt) and [V4 run instructions](README_v4.md).
+- [Experiment records](v3_experiments/) — candidate comparisons and validation checks.
+- [Submission archive](final_versions/) — saved model predictions, scored CSVs, and scripts for reconstructing submissions. The [asset manifest](final_versions/notebook_assets.json) records the files and checksums used by the integrated notebook.
 
 ## References
 
-- [Competition and evaluation](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview/description)
-- `Dataset/data_description.txt`
-
-## V3: selected prediction model
-
-`house_prices_v3.ipynb` contains an executed three-model blend selected from the recorded experiments: 50% SVR, 10% XGBoost, and 40% CatBoost. It improves missing-value handling and quality/area/age features, and limits extreme feature leverage for SVR using training-fold quantiles. All training and validation rows are retained.
-
-Use Python 3.11-3.13 and install the additional dependencies with `python3 -m pip install -r requirements-v3.txt`. Run the notebook to reproduce `submission_v3.csv`. Search parameters, failed trials, and the second-seed stability check are preserved in `v3_experiments/`.
-
-OOF selection scores reuse the data for model selection and must not be described as Kaggle scores or an independent final test.
+- [Kaggle House Prices evaluation](https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques/overview/evaluation)
+- [scikit-learn Ridge documentation](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html)
